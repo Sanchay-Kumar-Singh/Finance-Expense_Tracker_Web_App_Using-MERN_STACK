@@ -85,9 +85,9 @@ MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 ```
 Create `.env` inside **client/**
-
+```
 VITE_BASE_URL=http://localhost:5000
-
+```
 ---
 
 ## 📊 Dashboard Capabilities
