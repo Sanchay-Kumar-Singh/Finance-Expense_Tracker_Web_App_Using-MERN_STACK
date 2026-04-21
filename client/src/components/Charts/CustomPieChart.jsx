@@ -15,14 +15,14 @@ const CustomPieChart = ({
   label,
   totalAmount,
   colors = [
-    "#6366F1", // indigo-500
-    "#EC4899", // pink-500
-    "#10B981", // emerald-500
-    "#F59E0B", // amber-500
-    "#3B82F6", // blue-500
-    "#F97316", // orange-500
-    "#8B5CF6", // violet-500
-    "#EF4444", // red-500
+    "#6366F1", 
+    "#EC4899", 
+    "#10B981", 
+    "#F59E0B", 
+    "#3B82F6", 
+    "#F97316", 
+    "#8B5CF6", 
+    "#EF4444", 
   ],
   showTextAnchor = true,
 }) => {

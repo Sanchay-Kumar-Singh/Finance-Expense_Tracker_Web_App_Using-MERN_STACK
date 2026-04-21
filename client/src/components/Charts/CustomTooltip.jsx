@@ -21,13 +21,6 @@ const CustomTooltip = ({ active, payload }) => {
             ₹{payload[0].value.toLocaleString()}
           </span>
         </div>
-        {/* Optional percentage display - uncomment if you want to show percentages */}
-        {/* <div className="flex justify-between items-center mt-1">
-          <span className="text-xs font-medium text-gray-500">Percentage:</span>
-          <span className="text-xs font-semibold text-gray-700">
-            {((payload[0].payload.percent || 0) * 100).toFixed(1)}%
-          </span>
-        </div> */}
       </div>
     );
   }

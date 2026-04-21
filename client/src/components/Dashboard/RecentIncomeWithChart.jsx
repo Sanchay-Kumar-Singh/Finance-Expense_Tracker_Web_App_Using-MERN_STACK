@@ -37,11 +37,7 @@ const RecentIncomeWithChart = ({ data, totalIncome }) => {
         data={chartData}
         label="Total Income"
         totalAmount={`₹${totalIncome}`}
-        // for formal indian currebcy use like this
-        // totalAmount={new Intl.NumberFormat('en-IN', {    
-        //   style: 'currency',
-        //   currency: 'INR',
-        // }).format(totalIncome)}
+     
         showTextAnchor={true}
         colors={COLORS}
       />
