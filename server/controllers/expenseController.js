@@ -63,19 +63,71 @@ exports.downloadExpenseExcel = async (req, res) => {
   try {
     const expense = await Expense.find({ userId }).sort({ date: -1 });
 
-    //Prepare data for excel
+    // Prepare data for excel
     const data = expense.map((item) => ({
       Category: item.category,
       Amount: item.amount,
       Date: item.date,
     }));
 
+    // Create workbook
     const wb = writeXLSX.utils.book_new();
+
+    // Create worksheet
     const ws = writeXLSX.utils.json_to_sheet(data);
+
+    // Append sheet
     writeXLSX.utils.book_append_sheet(wb, ws, "Expense");
-    writeXLSX.writeFile(wb, "expense_details.xlsx");
-    res.download("expense_details.xlsx");
+
+    // Convert workbook to buffer
+    const excelBuffer = writeXLSX.write(wb, {
+      bookType: "xlsx",
+      type: "buffer",
+    });
+
+    // Set headers
+    res.setHeader(
+      "Content-Type",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    );
+
+    res.setHeader(
+      "Content-Disposition",
+      "attachment; filename=expense_details.xlsx"
+    );
+
+    // Send buffer
+    res.send(excelBuffer);
+
   } catch (error) {
-    res.status(500).json({ message: "Server Error" });
+    console.log(error);
+
+    res.status(500).json({
+      message: "Server Error",
+      error: error.message,
+    });
   }
 };
+
+// exports.downloadExpenseExcel = async (req, res) => {
+//   const userId = req.user.id;
+
+//   try {
+//     const expense = await Expense.find({ userId }).sort({ date: -1 });
+
+//     //Prepare data for excel
+//     const data = expense.map((item) => ({
+//       Category: item.category,
+//       Amount: item.amount,
+//       Date: item.date,
+//     }));
+
+//     const wb = writeXLSX.utils.book_new();
+//     const ws = writeXLSX.utils.json_to_sheet(data);
+//     writeXLSX.utils.book_append_sheet(wb, ws, "Expense");
+//     writeXLSX.writeFile(wb, "expense_details.xlsx");
+//     res.download("expense_details.xlsx");
+//   } catch (error) {
+//     res.status(500).json({ message: "Server Error" });
+//   }
+// };

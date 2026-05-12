@@ -12,19 +12,24 @@ const generateToken = (id) => {
 exports.registerUser = async (req, res) => {
   const { fullName, email, password, profileImageUrl } = req.body;
 
-  //validation: Check for missing fields
+  // validation: Check for missing fields
   if (!fullName || !email || !password) {
-    return res.status(400).json({ message: "All fields are required" });
+    return res.status(400).json({
+      message: "All fields are required",
+    });
   }
 
   try {
-    //validation: Check if user already exists
+    // validation: Check if user already exists
     const existingUser = await User.findOne({ email });
+
     if (existingUser) {
-      return res.status(400).json({ message: "Email already in use" });
+      return res.status(400).json({
+        message: "Email already in use",
+      });
     }
 
-    //Create new user
+    // Create new user
     const user = await User.create({
       fullName,
       email,
@@ -37,10 +42,12 @@ exports.registerUser = async (req, res) => {
       user,
       token: generateToken(user._id),
     });
+
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Error registering user", error: err.message });
+    res.status(500).json({
+      message: "Error registering user",
+      error: error.message,
+    });
   }
 };
 
