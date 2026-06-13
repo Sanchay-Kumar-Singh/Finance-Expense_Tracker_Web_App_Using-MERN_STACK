@@ -75,7 +75,7 @@ server/
 ```
 
 ---
-### 3️⃣ Environment Variables
+### Environment Variables
 
 Create `.env` inside **server/**
 
