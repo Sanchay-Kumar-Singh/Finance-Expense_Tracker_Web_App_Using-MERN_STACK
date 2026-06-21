@@ -4,7 +4,7 @@ Spendora is a full-stack MERN application that helps users **track income, manag
 
 It includes secure authentication, Excel export, avatar uploads, and responsive UI.
 
-## 🌐 Live URL ---> https://finance-expense-beta.vercel.app/login
+## 🌐 Live Demo ---> https://finance-expense-beta.vercel.app/login
 
 ---
 
