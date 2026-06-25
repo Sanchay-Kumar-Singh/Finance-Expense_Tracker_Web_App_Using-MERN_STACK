@@ -112,5 +112,5 @@ VITE_BASE_URL=http://localhost:5000
 
 ---
 ## 👨‍💻 Developed By
-**Sanchay Kumar Singh**
+*✅Built By - Sanchay Kumar Singh*
 ---
