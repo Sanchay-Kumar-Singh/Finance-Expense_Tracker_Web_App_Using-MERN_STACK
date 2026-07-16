@@ -1,4 +1,4 @@
-# 💰 Spendora – MERN Expense Tracker
+# <h1>💰 Spendora – MERN Expense Tracker</h1>
 
 Spendora is a full-stack MERN application that helps users **track income, manage expenses, and visualize financial insights** through interactive charts and a clean dashboard.
 
