@@ -6,7 +6,6 @@ It includes secure authentication, Excel export, avatar uploads, and responsive 
 
 ## 🌐 Live Demo ---> https://finance-expense-beta.vercel.app/login
 ---
-
 ## ✨ Features
 
 - 🔐 JWT based authentication  
